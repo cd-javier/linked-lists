@@ -107,6 +107,20 @@ class LinkedList {
 
     return null;
   }
+
+  toString() {
+    const result = [];
+    let current = this.head;
+
+    while (current) {
+      result.push(`( ${current.value} )`);
+      current = current.next;
+    }
+
+    result.push('null');
+
+    return result.join(' -> ');
+  }
 }
 
 export default LinkedList;
