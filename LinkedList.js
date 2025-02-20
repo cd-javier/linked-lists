@@ -94,6 +94,19 @@ class LinkedList {
 
     return false;
   }
+
+  find(value) {
+    let current = this.head;
+    let counter = 0;
+
+    while (current) {
+      if (current.value === value) return counter;
+      current = current.next;
+      counter++;
+    }
+
+    return null;
+  }
 }
 
 export default LinkedList;
