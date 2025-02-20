@@ -71,6 +71,18 @@ class LinkedList {
 
     return current.value;
   }
+
+  pop() {
+    if (!this.head) return;
+
+    let current = this.head;
+
+    while (current.next.next) {
+      current = current.next;
+    }
+
+    current.next = null;
+  }
 }
 
 export default LinkedList;
