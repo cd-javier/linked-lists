@@ -121,6 +121,29 @@ class LinkedList {
 
     return result.join(' -> ');
   }
+
+  insertAt(value, index) {
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    }
+
+    const newNode = new Node(value);
+    let counter = 1;
+    let current = this.head;
+
+    while (counter !== index) {
+      if (!current)
+        return new Error(
+          `Can't insert node at index ${index}. Highest index is ${this.size()}`
+        );
+
+      current = current.next;
+      counter++;
+    }
+    newNode.next = current.next;
+    current.next = newNode;
+  }
 }
 
 export default LinkedList;
