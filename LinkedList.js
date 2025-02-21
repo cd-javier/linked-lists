@@ -139,8 +139,30 @@ class LinkedList {
       current = current.next;
       counter++;
     }
+
     newNode.next = current.next;
     current.next = newNode;
+  }
+
+  removeAt(index) {
+    if (index >= this.size()) {
+      return new Error(
+        `No node found at index ${index}. Highest index is ${this.size() - 1}`
+      );
+    } else if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let counter = 1;
+    let current = this.head;
+
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+
+    current.next = current.next.next;
   }
 }
 
